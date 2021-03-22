@@ -1,55 +1,46 @@
 {% extends "index.html" %} {% block content %}
+
 <body>
     <header>
         <h1><strong>Open Source</strong> Cookbook</h1>
-        <img
-            src="illustrations/bowl-spice.png"
-            alt="Illustration of a bowl of food."
-        />
+        <img src="illustrations/bowl-spice.png" alt="Illustration of a bowl of food." />
     </header>
     <section class="introduction" id="introduction">
         <h2>Introduction</h2>
         <p>
-            Food recipes, just like software code, require testing. In the
-            culinary world, recipe testers play an essential role in the
-            creation of a cookbook by making sure that what the chef/author
-            describes can be implemented by other people and that the recipes
-            work as described.
+            Food recipes, just like software code, require testing. In the culinary
+            world, recipe testers play an essential role in the creation of a cookbook
+            by making sure that what the chef/author describes can be implemented by
+            other people and that the recipes work as described.
         </p>
         <p>
-            The similarities between food and code also work the other way. We
-            call code that is difficult to read spaghetti code. We are
-            encouraged to eat our own code, which means using it ourselves as a
-            way to test it. Code that doesn't work is half-baked. A sample code
-            fragment is called a recipe and collections of coding recipes are
-            known as cookbooks, like The JavaScript Cookbook by Shelly Powers
-            and The C# Cookbook by Jay Hilyard.
+            The similarities between food and code also work the other way. We call
+            code that is difficult to read spaghetti code. We are encouraged to eat
+            our own code, which means using it ourselves as a way to test it. Code
+            that doesn't work is half-baked. A sample code fragment is called a recipe
+            and collections of coding recipes are known as cookbooks, like The
+            JavaScript Cookbook by Shelly Powers and The C# Cookbook by Jay Hilyard.
         </p>
         <p>
-            Open source software has a particular indebtedness to the food
-            world. As with food recipes, having lots of people review your code
-            only makes it stronger and more reliable. This is the premise of
-            Linus's Law, which promotes the idea that a key benefit of open
-            source over closed source software is that it gets more eyes and is
-            more likely to get seen by those who can find and resolve bugs in
-            the codebase.
+            Open source software has a particular indebtedness to the food world. As
+            with food recipes, having lots of people review your code only makes it
+            stronger and more reliable. This is the premise of Linus's Law, which
+            promotes the idea that a key benefit of open source over closed source
+            software is that it gets more eyes and is more likely to get seen by those
+            who can find and resolve bugs in the codebase.
         </p>
         <p>
             <strong>
-                In the tradition of open source, the authors of the chapters in
-                this cookbook are giving back to the community by sharing
-                favorite recipes - free, online, and downloadable. Enjoy
-                appetizers, entrees, and desserts from around the world,
-                courtesy of our global developer community!
+                In the tradition of open source, the authors of the chapters in this
+                cookbook are giving back to the community by sharing favorite recipes -
+                free, online, and downloadable. Enjoy appetizers, entrees, and desserts
+                from around the world, courtesy of our global developer community!
             </strong>
         </p>
     </section>
 
     <div class="call-to-action">
-        <img
-            src="illustrations/red-onion.png"
-            alt="An illustration of a red onion."
-        />
+        <img src="illustrations/red-onion.png" alt="An illustration of a red onion." />
         <a href="contribute">Contribute your recipe</a>
     </div>
 
@@ -72,9 +63,7 @@
                         <ol>
                             {% for recipe in recipes_by_category["appetizer"]%}
                             <li>
-                                <a href="{{ recipe.slug }}"
-                                    >{{ recipe.recipe_name }}</a
-                                >
+                                <a href="{{ recipe.slug }}">{{ recipe.recipe_name }}</a>
                             </li>
                             {% endfor %}
                         </ol>
@@ -87,9 +76,20 @@
                         <ol>
                             {% for recipe in recipes_by_category["entree"]%}
                             <li>
-                                <a href="{{ recipe.slug }}"
-                                    >{{ recipe.recipe_name }}</a
-                                >
+                                <a href="{{ recipe.slug }}">{{ recipe.recipe_name }}</a>
+                            </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+                <div class="chapter">
+                    <span class="chapter-number">03</span>
+                    <div class="chapter-description">
+                        <h3><a href="#entrees">Main Dishes</a></h3>
+                        <ol>
+                            {% for recipe in recipes_by_category["main"]%}
+                            <li>
+                                <a href="{{ recipe.slug }}">{{ recipe.recipe_name }}</a>
                             </li>
                             {% endfor %}
                         </ol>
@@ -98,30 +98,26 @@
             </div>
             <div class="chapter-column">
                 <div class="chapter">
-                    <span class="chapter-number">03</span>
+                    <span class="chapter-number">04</span>
                     <div class="chapter-description">
                         <h3><a href="#desserts">Desserts</a></h3>
                         <ol>
                             {% for recipe in recipes_by_category["dessert"]%}
                             <li>
-                                <a href="{{ recipe.slug }}"
-                                    >{{ recipe.recipe_name }}</a
-                                >
+                                <a href="{{ recipe.slug }}">{{ recipe.recipe_name }}</a>
                             </li>
                             {% endfor %}
                         </ol>
                     </div>
                 </div>
                 <div class="chapter">
-                    <span class="chapter-number">04</span>
+                    <span class="chapter-number">05</span>
                     <div class="chapter-description">
                         <h3><a href="#others">Others</a></h3>
                         <ol>
                             {% for recipe in recipes_by_category["other"]%}
                             <li>
-                                <a href="{{ recipe.slug }}"
-                                    >{{ recipe.recipe_name }}</a
-                                >
+                                <a href="{{ recipe.slug }}">{{ recipe.recipe_name }}</a>
                             </li>
                             {% endfor %}
                         </ol>
@@ -185,12 +181,39 @@
         </div>
     </section>
 
+    <!-- Main Dishes -->
+    <section class="main" id="main">
+        <header>
+            <img src="illustrations/entree.png" alt="" />
+            <div>
+                <span>03</span>
+                <h2>Main Dishes</h2>
+                <p>The main main event</p>
+            </div>
+        </header>
+        <div class="recipe-cards">
+            {% for recipe in recipes_by_category["main"]%}
+            <div class="recipe-card">
+                <h3>
+                    <a href="{{ recipe.slug }}">{{ recipe.recipe_name }}</a>
+                </h3>
+                <hr />
+                <div>
+                    <span class="name">{{ recipe.name }}</span>
+                    <span class="residence">{{ recipe.residence }}</span>
+                    <span class="quote">{{ recipe.quote }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
     <!-- Desserts -->
     <section class="desserts" id="desserts">
         <header>
             <img src="illustrations/dessert.png" alt="" />
             <div>
-                <span>03</span>
+                <span>04</span>
                 <h2>Desserts</h2>
                 <p>Sweet treats</p>
             </div>
@@ -217,7 +240,7 @@
         <header>
             <img src="illustrations/other.png" alt="" />
             <div>
-                <span>04</span>
+                <span>05</span>
                 <h2>Others</h2>
                 <p>Some more stuff</p>
             </div>

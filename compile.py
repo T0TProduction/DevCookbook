@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     # Handles the path setting for production versus local
     # (Production has /DevCookbook/ prepended to the path)
-    env.globals = {"path_base": "/DevCookbook/" if target == "prod" else "/"}
+    env.globals = {"path_base": "/"} # "/DevCookbook/" if target == "prod" else 
 
     home_page = render_home_page(recipes, env)
     contribute_page = render_contribute_page(env)
